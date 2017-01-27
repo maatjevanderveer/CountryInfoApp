@@ -1,8 +1,9 @@
 // STAPPENPLAN
 // console.log("stappenplan")
 
-// insert required libraries 
+// insert required libraries or module 
 var fs = require("fs")
+var parsedJSONfile = require(__dirname + "./JSONfilereader")
 
 // read the countries.json file
 fs.readFile(__dirname + "/countries.json", function(err, countries) {
@@ -24,3 +25,9 @@ fs.readFile(__dirname + "/countries.json", function(err, countries) {
 
 
 // takes in one parameter from the command line: node app.js blablabla
+
+// PART TWO
+
+// create a seperate module for reading and parsing the json file 
+// export the json-file-reader in the new file
+// import the json-file-reader in this one
