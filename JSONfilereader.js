@@ -1,8 +1,7 @@
 // insert required libraries
 var fs = require("fs")
 
-//read and parse json files, and store 
-var parsedJSONfile = fs.readFile(__dirname + "/ANYJSONFILE", function(err, jsonfile) {
+var parseAndprint = function(err, jsonfile) {
 	if (err) {
 		throw err
 	};
@@ -13,7 +12,14 @@ var parsedJSONfile = fs.readFile(__dirname + "/ANYJSONFILE", function(err, jsonf
 			console.log("Top Level Domain: " + parsed[i].topLevelDomain)
 		}
 	}
-})
+}
+
+//read and parse json files, and store 
+var parsedJSONfile = function(countryName) {
+	fs.readFile(__dirname + "/countries.json", parseAndprint)
+}
+
+
 
 // export the json-file-reader
 module.exports = parsedJSONfile
