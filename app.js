@@ -23,6 +23,14 @@ var parsedJSONfile = require(__dirname + "/JSONfilereader")
 // })
 // console.log(process.argv[])
 
+var countryName = function(parsed) {
+	for (var i=0; i < parsed.length; i++) {
+		if(process.argv[2] === parsed[i].name) {
+			console.log("Country: " + parsed[i].name)
+			console.log("Top Level Domain: " + parsed[i].topLevelDomain)
+		}
+	}
+}
 
 // takes in one parameter from the command line: node app.js blablabla
 
@@ -31,6 +39,5 @@ var parsedJSONfile = require(__dirname + "/JSONfilereader")
 // create a seperate module for reading and parsing the json file 
 // export the json-file-reader in the new file
 // import the json-file-reader in this one
-console.log("Goodmorning!")
 
-parsedJSONfile(process.argv[2])
+parsedJSONfile(__dirname + "/countries.json", countryName)
